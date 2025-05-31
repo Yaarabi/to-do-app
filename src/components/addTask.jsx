@@ -1,19 +1,24 @@
 import { useState } from "react"
-import { useSelector, useDispatch } from "react-redux"
+import { useDispatch } from "react-redux"
 import { addTask } from "../redux/action"
 
 
 
 const AddTask = (props) => {
 
-    const tasks = useSelector(state => state)
+    // const tasks = useSelector(state => state)
     const dispatch = useDispatch()
 
     const [ description, setDescription ] = useState('')
 
     const add = () => {
+        console.log(description)
         if(description!=="") { 
-            dispatch(addTask() )
+            dispatch(addTask({
+                id:3,
+                description,
+                isDone: false
+            }) )
         }
     }
 

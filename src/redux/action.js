@@ -6,15 +6,24 @@ export const getTasks = () => {
   };
 };
 
-export const addTask = () => {
+export const addTask = (task) => {
     return {
-        type: "ADD"
-    };
+        type: "ADD",
+        payload: task
+    }; 
 }
 
-export const deleteTask = () => {
+export const update = (task) => {
     return {
-        type: "DELETE"
+        type: "UPDATE",
+        payload: task
+    }
+}
+
+export const deleteTask = (id) => {
+    return {
+        type: "DELETE",
+        payload: { id }
     };
 }
 

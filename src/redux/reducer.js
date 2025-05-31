@@ -15,11 +15,15 @@ const initialState = [
 const rootReducer = (state = initialState, action) => {
     switch (action.type) {
         case 'GET':
-            return state; 
+            return   state ; 
 
         case 'ADD':
+            console.log(action.payload)
             return [...state, action.payload]; 
-
+        case 'UPDATE':
+            return state.map((ele) => 
+                    ele.id === action.payload.id ? {...action.payload} : ele
+                    );
         case 'ISDONE':
             return state.filter((ele) => ele.isDone !== true); 
 
